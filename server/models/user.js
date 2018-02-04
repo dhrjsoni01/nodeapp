@@ -21,9 +21,25 @@ const userSchema = mongoose.Schema({
     tags        : [String],
     rate        : String,
     age         : String,
+    rating      : String,
+    comments    : [{
+                    rating  : String,
+                    comment : String,
+                    user    : String
+    }]
     experience  : String,
     token       : String,
     password    : { type: String, required: true},
+    address     : {
+                    name    : String,
+                    city    : String,
+                    state   : String,
+                    pincode : String
+    },
+    location    : {
+                    lat     : String,
+                    long    : String
+    }
 });
 
 // mongoose.Promise = global.Promise;
