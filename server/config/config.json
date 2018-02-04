@@ -1,4 +1,5 @@
 {
-    "serverport":"process.env.PORT",
-    "localport":"3000"
+    "serverport": "process.env.PORT",
+    "localport" : "3000",
+    "secret"    : "here goes the secret"
 }

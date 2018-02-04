@@ -1,0 +1,29 @@
+{
+  "name": "nodeapp",
+  "version": "1.0.0",
+  "description": "minorproject for jec",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhrjsoni01/nodeapp.git"
+  },
+  "author": "dks",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dhrjsoni01/nodeapp/issues"
+  },
+  "homepage": "https://github.com/dhrjsoni01/nodeapp#readme",
+  "dependencies": {
+    "basic-auth": "^2.0.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.1",
+    "mongoose": "^5.0.3",
+    "morgan": "^1.9.0",
+    "nodemailer": "^4.4.2"
+  }
+}

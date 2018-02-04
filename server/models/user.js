@@ -8,9 +8,9 @@ const Schema = mongoose.Schema;
 const userSchema = mongoose.Schema({
 
     name: {
-        first   :  {type:string,  required: true },
-        middle  :  string,
-        last    :  {type: string, required: true },
+        first   :  {type: String, required: true },
+        middle  :  String,
+        last    :  {type: String, required: true },
     },
     email       : { type: String, unique: true },
     mobile      : { type: String, unique: true },
@@ -26,7 +26,7 @@ const userSchema = mongoose.Schema({
                     rating  : String,
                     comment : String,
                     user    : String
-    }]
+    }],
     experience  : String,
     token       : String,
     password    : { type: String, required: true},
