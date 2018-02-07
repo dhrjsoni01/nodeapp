@@ -4,7 +4,6 @@ const configdb      = require('./config/db.json')
 const app           = express();
 const bodyParser    = require('body-parser');
 const logger        = require('morgan');
-// const router        = express.Router();
 const port          = process.env.PORT || 3000 ;
 
 

@@ -1,6 +1,6 @@
 'use strict';
 
-const user = require('../models/user');
+const user = require('../../models/user');
 const bcrypt = require('bcryptjs');
 
 exports.registerUser = (name, email, mobile, password) =>{
@@ -10,13 +10,15 @@ exports.registerUser = (name, email, mobile, password) =>{
         const salt = bcrypt.genSaltSync(10);
         const hash = bcrypt.hashSync(password, salt);
         var splitname = name.split(" ");
-        const mname = splitname[1];
+        const mname = "";
         var len = splitname.length;
         console.log(len);
         console.log(len-1);
         
-        if (splitname.lenght>3) {
+        if (splitname.length>3) {
             mname = splitname[1]+" "+ splitname[2]
+        }else if (splitname.length==3) {
+            mname = splitname[1]
         }
 
 

@@ -9,10 +9,11 @@ const config = require('../config/config.json');
 
 //models
 const user = require('../models/user');
-
 //fuctions
-const register  = require('../functions/register');
-const login     = require('../functions/login');
+const register  = require('../functions/register/user');
+const login     = require('../functions/login/user');
+const profile   = require('../functions/user/profile');
+const checkToken= require('../functions/checktoken');
 
     router.get('/', (req, res) => res.end('Welcome to DKS node app ! '));
 
@@ -53,21 +54,22 @@ const login     = require('../functions/login');
         }
     });
 
-    // router.get('/users/:id', (req, res) => {
+    router.get('/getprofile/:id', (req, res) => {
+        console.log(config.secret);
+        
+        if (checkToken.check(req)) {
 
-    //     if (checkToken(req)) {
+            profile.getProfile(req.params.id)
 
-    //         profile.getProfile(req.params.id)
+                .then(result => res.json(result))
 
-    //             .then(result => res.json(result))
+                .catch(err => res.status(err.status).json({ message: err.message }));
 
-    //             .catch(err => res.status(err.status).json({ message: err.message }));
+        } else {
 
-    //     } else {
-
-    //         res.status(401).json({ message: 'Invalid Token !' });
-    //     }
-    // });
+            res.status(401).json({ message: 'Invalid Token !' });
+        }
+    });
 
     // router.put('/users/:id', (req, res) => {
 
@@ -119,17 +121,5 @@ const login     = require('../functions/login');
     //     }
     // });
 
-    function checkToken(req) {
-        const token = req.headers['x-access-token'];
-        if (token) {
-            try {
-                var decoded = jwt.verify(token, config.secret);
-                return decoded.message === req.params.id;
-            } catch (err) {
-                return false;
-            }
-        } else {
-            return false;
-         }
-    }
+   
 module.exports = router;
