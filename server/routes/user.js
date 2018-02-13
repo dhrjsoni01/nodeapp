@@ -25,7 +25,7 @@ const checkToken= require('../functions/checktoken');
         } else {
             login.loginUser(credentials.name, credentials.pass)
                 .then(result => {
-                    const token = jwt.sign(result, config.secret, { expiresIn: 1440 });
+                    const token = jwt.sign(result, config.secret);
                     res.status(result.status).json({ message: result.message, token: token });
                 })
                 .catch(err => res.status(err.status).json({ message: err.message }));
@@ -46,17 +46,16 @@ const checkToken= require('../functions/checktoken');
             res.status(400).json({ message: 'Invalid Request !' });
         } else {
             register.registerUser(name, email, mobile, password)
-                .then(result => {
+                .then((result) => {
                     res.setHeader('Location', '/users/' + email);
                     res.status(result.status).json({ message: result.message })
                 })
-            .catch(err => res.status(err.status).json({ message: err.message }));
+                .catch((err) => res.status(err.status).json({ message: err.message }));
         }
     });
 
-    router.get('/getprofile/:id', (req, res) => {
-        console.log(config.secret);
-        
+    router.get('/profile/:id', (req, res) => {
+                
         if (checkToken.check(req)) {
 
             profile.getProfile(req.params.id)
