@@ -55,8 +55,7 @@ const checkToken= require('../functions/checktoken');
     });
 
     router.get('/getprofile/:id', (req, res) => {
-        console.log(config.secret);
-        
+                
         if (checkToken.check(req)) {
 
             profile.getProfile(req.params.id)

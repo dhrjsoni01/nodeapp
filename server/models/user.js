@@ -15,7 +15,7 @@ const userSchema = mongoose.Schema({
     email       : { type: String, unique: true },
     mobile      : { type: String, unique: true },
     created_at  : { type: Date, default: Date.now},
-    listing     : { type: Boolean, default: false},
+    listingOn   : { type: Boolean, default: false},
     job         : String,
     gender      : String,
     category    : String,

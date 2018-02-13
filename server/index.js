@@ -28,10 +28,10 @@ app.get("/",function (req,res){
 
 //userroutes
 const userroutes = require('./routes/user');
+const listingroutes = require('./routes/listing')
 app.use('/api/v1/user',userroutes);
+app.use('/api/v1/listing',listingroutes);
 
-// require('./routes')(router);
-// app.use('/api/v1', router);
 
 app.listen(port,function () {
     console.log(`server is runnning on http://localhost:${port}`);
