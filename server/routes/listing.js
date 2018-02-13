@@ -11,10 +11,12 @@ const checkToken = require('../functions/checktoken')
 
 //to register a listing 
 router.put('/:id/createlisting', (req, res) => {
-    console.log(req.param.id);
+    console.log(req.params.id);
     
         if (checkToken.check(req)) {
-            addlisting.registerlisting( req.param.id,
+            console.log(req.params.id);
+            
+            addlisting.registerlisting( req.params.id,
                                         req.body.job,
                                         req.body.category,
                                         req.body.rate,
