@@ -38,7 +38,7 @@ const userSchema = mongoose.Schema({
                     lat     : String,
                     long    : String
     },
-    varify      :{
+    verify      :{
                     mobile  : { type: Boolean, default: false},
                     email   : { type: Boolean, default: false}
     }

@@ -14,6 +14,7 @@ const register  = require('../functions/register/user');
 const login     = require('../functions/login/user');
 const profile   = require('../functions/user/profile');
 const checkToken= require('../functions/checktoken');
+const verifyemail= require('../functions/user/verifyemail')
 
     router.get('/', (req, res) => res.end('Welcome to DKS node app ! '));
 
@@ -69,6 +70,20 @@ const checkToken= require('../functions/checktoken');
             res.status(401).json({ message: 'Invalid Token !' });
         }
     });
+
+    router.get('/otpemail/:id',(req,res)=>{
+        console.log(req.params.id);
+        verifyemail.send(req.params.id)
+        .then(result => {res.status(result.status).json({ message: result.message})})
+        .catch(err => {res.status(err.status).json({ message: err.message})})
+    })
+
+    router.put('/otpemail/:id/:otp',(req,res)=>{
+        console.log(req.params.id);
+        verifyemail.verify(req.params.id,req.params.otp)
+        .then(result => { res.status(result.status).json({ message: result.message }) })
+        .catch(err => { res.status(err.status).json({ message: err.message }) })
+    })
 
     // router.put('/users/:id', (req, res) => {
 
