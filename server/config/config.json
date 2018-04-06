@@ -2,6 +2,6 @@
     "serverport": "process.env.PORT",
     "localport" : "3000",
     "secret"    : "here goes the secret",
-    "email"     : "dhrjsoni01@gmail.com",
-    "pass"      : "dheeraj@1996"  
+    "email"     : "email",
+    "pass"      : "password"  
 }
